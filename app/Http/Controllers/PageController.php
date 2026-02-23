@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function home()
     {
-        $trains = Train::all();
+        $trains = Train::orderBy('landing_time', 'asc')->get();
 
         return view('welcome', compact('trains'));
     }
