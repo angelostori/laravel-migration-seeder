@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('company', length: 50);
             $table->string('landing_station', length: 50);
             $table->string('arrival_station', length: 50);
-            $table->time('landind_time', precision: 0);
+            $table->time('landing_time', precision: 0);
             $table->time('arrival_time', precision: 0);
             $table->string('code_comp', length: 2);
             $table->mediumInteger('code_train'); //5 numeri

@@ -1,5 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
-Route::get('/', [App\Http\Controllers\PageController::class, 'home']);
+Route::get('/', [PageController::class, 'home']);
