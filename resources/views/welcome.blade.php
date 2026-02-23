@@ -3,6 +3,6 @@
 @section('content')
 <h1>Treni</h1>
 @foreach($trains as $train)
-<li>{{ $train['company'] . ' - ' . $train['landing_station'] . ' - ' . $train['arrival_station'] . ' - ' . $train['landind_time']}}</li>
+<li>{{ $train['company'] . ' - ' . $train['landing_station'] . ' - ' . $train['arrival_station'] . ' - ' . $train['landing_time']}}</li>
 @endforeach
 @endsection
