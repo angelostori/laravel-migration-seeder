@@ -3,28 +3,33 @@
 namespace Database\Seeders;
 
 use App\Models\Train;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class TrainsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
-        $newStudent = new Train();
-        $newStudent->company = "Trenitalia";
-        $newStudent->landing_station = "Roma Termini";
-        $newStudent->arrival_station = "Milano Centrale";
-        $newStudent->landing_time = "2024-07-01 08:00:00";
-        $newStudent->arrival_time = "2024-07-01 12:00:00";
-        $newStudent->code_comp = "TR";
-        $newStudent->code_train = "1234";
-        $newStudent->carriages = 8;
-        $newStudent->platform = 18;
-        $newStudent->is_on_time = true;
-        $newStudent->is_aborted = false;
-        $newStudent->save();
+
+        for ($i = 0; $i < 20; $i++) {
+            $newTrain = new Train();
+
+            $newTrain->company = $faker->company();;
+            $newTrain->landing_station = $faker->city();
+            $newTrain->arrival_station = $faker->city();
+            $newTrain->landing_time = $faker->time();
+            $newTrain->arrival_time = $faker->time();
+            $newTrain->code_comp = strtoupper($faker->lexify('??'));
+            $newTrain->code_train = $faker->randomNumber(5, true);
+            $newTrain->carriages = $faker->numberBetween(6, 12);
+            $newTrain->platform = $faker->numberBetween(1, 30);
+            $newTrain->is_on_time = $faker->boolean(80);
+            $newTrain->is_aborted = $faker->boolean(10);
+
+            $newTrain->save();
+        }
     }
 }
