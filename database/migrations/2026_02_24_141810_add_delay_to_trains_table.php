@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('trains', function (Blueprint $table) {
-            //
+            $table->tinyInteger('delay')->default(0)->after('is_on_time');
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('trains', function (Blueprint $table) {
-            //
+            $table->dropColumn('delay');
         });
     }
 };

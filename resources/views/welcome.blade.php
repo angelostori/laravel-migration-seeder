@@ -16,6 +16,7 @@
                         <th>Ora P.</th>
                         <th>Arrivo</th>
                         <th>Ora A.</th>
+                        <th>Ritardo</th>
                         <th>Binario</th>
                     </tr>
                 </thead>
@@ -28,6 +29,13 @@
                         <td>{{ $train['landing_time'] }}</td>
                         <td>{{ $train['arrival_station'] }}</td>
                         <td>{{ $train['arrival_time'] }}</td>
+                        <td>
+                            @if($train['delay'] > 0)
+                            {{ $train['delay'] }}'
+                            @else
+                            -
+                            @endif
+                        </td>
                         <td class="fw-bold">{{ $train['platform'] }}</td>
                     </tr>
                     @endforeach

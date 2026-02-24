@@ -27,7 +27,13 @@ class TrainsTableSeeder extends Seeder
             $newTrain->carriages = $faker->numberBetween(6, 12);
             $newTrain->platform = $faker->numberBetween(1, 30);
             $newTrain->is_on_time = $faker->boolean(80);
-            $newTrain->is_aborted = $faker->boolean(10);
+
+            $isOnTime = $faker->boolean(80);
+            $newTrain->is_on_time = $isOnTime;
+
+            $newTrain->delay = $isOnTime ? 0 : $faker->numberBetween(5, 120);
+
+            $newTrain->is_aborted = $isOnTime ? 0 : $faker->boolean(10);
 
             $newTrain->save();
         }
