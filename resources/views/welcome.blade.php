@@ -2,10 +2,9 @@
 @section('title', 'Home')
 @section('content')
 
-<div class="container mt-5">
-    <h1>Treni</h1>
+<div class="container my-5">
 
-    <x-trainsCard>
+    <x-trainsCard title="Tabellone Treni">
         <x-trainsTable :trains="$trains" />
     </x-trainsCard>
 </div>
