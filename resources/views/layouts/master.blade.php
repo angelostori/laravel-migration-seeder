@@ -9,10 +9,14 @@
 </head>
 
 <body>
-    <header></header>
-    <main>
-        @yield('content')
-    </main>
+    <header>
+        @include('partials.header')
+    </header>
+    <div class="container my-5">
+        <main>
+            @yield('content')
+        </main>
+    </div>
 </body>
 
 </html>
